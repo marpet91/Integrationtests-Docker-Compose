@@ -16,8 +16,6 @@ public class DbFixture : IAsyncDisposable
 
     public DbFixture()
     {
-        // "Server=localhost,1433;Database=WeatherApp;User=sa;Password=2@LaiNw)PDvs^t>L!Ybt]6H^%h3U>M"
-        // ConnectionString = $"Server=localhost,1433;Database={WeatherDbName};User=sa;Password=2@LaiNw)PDvs^t>L!Ybt]6H^%h3U>M";
         ConnectionString = $"Server=localhost,1433;Database={WeatherDbName};User=sa;Password=2@LaiNw)PDvs^t>L!Ybt]6H^%h3U>M";
 
         var builder = new DbContextOptionsBuilder<WeatherDbContext>();
