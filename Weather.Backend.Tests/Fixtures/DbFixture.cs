@@ -6,7 +6,7 @@ using Xunit;
 
 namespace Weather.Backend.Tests.Fixtures;
 
-public class DbFixture : IAsyncDisposable
+public class DbFixture : IDisposable
 {
     private readonly WeatherDbContext _dbContext;
     public readonly string ConnectionString;
@@ -37,11 +37,25 @@ public class DbFixture : IAsyncDisposable
 
         _disposed = true;
     }
-
-    public async ValueTask DisposeAsync()
+    
+    public void Dispose()
     {
-        await DisposeAsync(true);
+        Dispose(disposing: true);
         GC.SuppressFinalize(this);
+    }
+
+    protected virtual void Dispose(bool disposing)
+    {
+        if (!_disposed)
+        {
+            if (disposing)
+            {
+                // remove the temp db from the server once all tests are done
+                _dbContext.Database.EnsureDeleted();
+            }
+
+            _disposed = true;
+        }
     }
 }
 
