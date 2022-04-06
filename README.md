@@ -6,7 +6,8 @@ This repo demonstrates ASP.NET Core integration testing using a real database us
 - Docker & Docker Compose installed
 - .NET SDK 6.0.x
 
-# Running the tests from CLI
-1. docker-compose up
-2. dotnet test
-3. docker-compose down
+# Running the tests locally from CLI
+1. start docker desktop
+2. docker-compose up
+3. dotnet test
+4. docker-compose down
