@@ -1,0 +1,10 @@
+version: "3.9"
+services:
+  
+  db:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    environment:
+      - ACCEPT_EULA=true
+      - SA_PASSWORD=2@LaiNw)PDvs^t>L!Ybt]6H^%h3U>M
+    ports:
+      - 1433:1433
